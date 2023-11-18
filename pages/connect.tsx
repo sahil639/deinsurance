@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     if(isConnected && address) {
-       API(address)
+       window.location.href = '/'
     }
   }, [isConnected, address])
 
