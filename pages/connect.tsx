@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useWeb3Modal } from '@web3modal/react'
 import { useAccount } from 'wagmi'
@@ -64,20 +63,14 @@ export default function Home() {
   }
 
   return (
-    <div className="flex bg-slate-100 min-h-screen flex-col py-2 px-2">
+    <div className="flex bg-slate-100 min-h-screen  flex-col py-2 px-2">
     <h1
-      className='text-6xl font-bold text-gray-900
-        underline py-2
+      className='text-6xl font-bold text-gray-900 justify-center items-center flex
+       py-2
       '
     >
       DESURANCE
     </h1>
-
-    <p className="text-xl font text-gray-900">
-      Provide Job insurance for all Startup workers across
-      <br/>
-       the world while keeping their data anonymous.
-    </p>
 
 
       <Card className=" rounded-xl
