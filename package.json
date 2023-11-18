@@ -1,0 +1,37 @@
+{
+  "name": "istanbul",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reclaimprotocol/reclaim-client-sdk": "^0.0.11",
+    "@reclaimprotocol/reclaim-connect-react": "^0.0.1-beta.12",
+    "@web3modal/ethereum": "^2.7.1",
+    "@web3modal/react": "^2.7.1",
+    "mongoose": "^8.0.1",
+    "next": "14.0.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "uuid": "^9.0.1",
+    "viem": "^1.19.3",
+    "wagmi": "^1.4.7",
+    "web3": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.7",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
