@@ -1,5 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
+import { Toaster } from '@/components/ui/toaster'
+
 import {
   EthereumClient,
   w3mConnectors,
@@ -43,6 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
   <>
         <WagmiConfig config={wagmiConfig}>
+          <Toaster/>
   <Component {...pageProps} />
   </WagmiConfig>
   <Web3Modal

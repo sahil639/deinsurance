@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { toast } from '@/components/ui/use-toast';
 import React, { FC } from 'react'
 
 interface SubmitClaimProps {
@@ -31,7 +32,11 @@ const SubmitClaim: FC<SubmitClaimProps> = ({ }) => {
                         <Label htmlFor="Upload">Upload</Label>
                         <Input id="Upload" type="file" />
                     </div>
-                    <Button className='w-full'>Submit</Button>
+                    <Button onClick={() => {
+                        toast({
+                            description: "Claim submitted sucessfully",
+                        })
+                    }} className='w-full'>Submit</Button>
                 </div>
             </div>
         </Layout>
