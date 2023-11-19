@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
+import Web3Modal from "web3modal";
 
 import { GenerateProof } from "@reclaimprotocol/reclaim-connect-react";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { set } from "mongoose";
+// Import Push SDK & Ethers
+import { PushAPI } from "@pushprotocol/restapi";
+import { ethers } from "ethers";
+import env from "react-dotenv";
 
 interface indexProps {}
 
@@ -18,6 +23,35 @@ const Index: React.FC<indexProps> = ({}) => {
       window.location.href = "/connect";
     }
   }, [isConnected, address]);
+
+  const sendNotification = async () => {
+    try {
+      if (!isConnected || !address) {
+        return;
+      }
+
+      // Create an ethers Wallet instance from the public key
+      const web3Modal = new Web3Modal();
+      const modalProvider = await web3Modal.connect();
+      const signer = new ethers.providers.Web3Provider(
+        modalProvider
+      ).getSigner();
+
+      // Initialize wallet user, pass 'prod' instead of 'staging' for mainnet apps
+      const userAlice = await PushAPI.initialize(signer, { env: process.env.PUSH_ENV });
+      console.log(userAlice);
+
+      // Send a notification to users of your protocol
+      const apiResponse = await userAlice.channel.send(["*"], {
+        notification: {
+          title: "Insurance Plan",
+          body: "Your insurance plan has been initiated",
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const NavBar = () => (
     <div className="flex flex-row font-bold text-lg fixed top-0 left-0 right-0 justify-between items-center py-3 shadow-sm px-10 bg-white">
@@ -93,7 +127,7 @@ const Index: React.FC<indexProps> = ({}) => {
             </p>
             <button
               className="bg-green-500 text-white rounded-lg px-4 py-2 my-3"
-              onClick={() => navigate(`/profile/${address}`)}
+              onClick={sendNotification}
             >
               Buy Insurance
             </button>
