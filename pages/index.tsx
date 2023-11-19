@@ -38,7 +38,8 @@ const Index: React.FC<indexProps> = ({}) => {
       ).getSigner();
 
       // Initialize wallet user, pass 'prod' instead of 'staging' for mainnet apps
-      const userAlice = await PushAPI.initialize(signer, { env: process.env.PUSH_ENV });
+      //@ts-ignore
+      const userAlice = await PushAPI.initialize(signer, { env: process.env.PUSH_ENV! });
       console.log(userAlice);
 
       // Send a notification to users of your protocol
