@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { ethers } from "ethers";
-import contractABI from '../../contract/src/insurance-abi.json';
+import contractABI from '../contract/src/insurance-abi.json';
 
 export function IssueInsurance({amount, userAddr}: {amount: Number, userAddr: string}) {
 

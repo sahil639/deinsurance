@@ -13,7 +13,7 @@ import { ethers } from "ethers";
 import env from "react-dotenv";
 import contractABI from "../contract/src/insurance-abi.json";
 import { send } from "@pushprotocol/restapi/src/lib/chat";
-import { IssueInsurance } from "./utils/issue-insurance";
+import { IssueInsurance } from "../utils/issue-insurance";
 
 interface indexProps {}
 
