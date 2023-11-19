@@ -16,7 +16,7 @@ interface indexProps {}
 
 const Index: React.FC<indexProps> = ({}) => {
   const { isConnected, address } = useAccount();
-  const [salary, setSalary] = useState(1);
+  const [salary, setSalary] = useState(0);
 
   useEffect(() => {
     if (!isConnected || !address) {
