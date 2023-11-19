@@ -100,7 +100,7 @@ const Index: React.FC<indexProps> = ({}) => {
                 },
               },
             }}
-            appID="e840ba05-6991-48ab-8371-1be0736fb4a5"
+            appID="e454f7f1-7d6e-4885-a894-aac999580d8a"
             userID={uuidv4()}
             onProofSubmission={(proofs, sessionId) => {
               console.log(proofs, sessionId);
